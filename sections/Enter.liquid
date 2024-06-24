@@ -1,0 +1,129 @@
+<script src="{{ 'Enter.js' | asset_url }}" defer></script>
+
+<script type="module" defer>
+  const root = document.createElement("x-root");
+  
+  {% if section.settings.content == "video" and section.settings.video != blank %}
+    root.setProp("video", "{{ section.settings.video }}");
+  {% elsif section.settings.content == "logo" and section.settings.enter_image != blank %}
+    root.setProp("logo", "{{ block.settings.enter_image | image_url }}");
+  {% endif %}
+
+  {% if section.settings.music != blank %}
+    root.setProp("music", "{{ section.settings.music }}");
+  {% endif %}
+
+  root.setProp("type", "{{ section.settings.type }}");
+
+  {% if section.settings.message != blank %}
+    root.setProp("message", `{{ section.settings.message }}`);
+  {% endif %}
+  {% if section.settings.success_message != blank %}
+    root.setProp("successMessage", `{{ section.settings.success_message }}`);
+  {% endif %}
+  {% if section.settings.email_placeholder != blank %}
+    root.setProp("emailPlaceholder", `{{ section.settings.email_placeholder }}`);
+  {% endif %}
+
+  root.render();
+</script>
+
+{% schema %}
+{
+  "name": "Main",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Sign Up or Password"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "label": "Choose type for page:",
+      "options": [
+        {
+          "value": "password",
+          "label": "Password"
+        },
+        {
+          "value": "signup",
+          "label": "Sign Up"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text Fields"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "info": "Message to display on sign up screen.",
+      "default": "Sign up to get notified when the store is live."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "info": "Text to display inside email field.",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "info": "Message to display after customer successfully subscribed.",
+      "default": "Thanks for subscribing."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content",
+      "label": "Main Content",
+      "options": [
+        {
+          "value": "",
+          "label": "<none>"
+        },
+        {
+          "value": "logo",
+          "label": "Logo"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "enter_image",
+      "label": "For logo:"
+    },
+    {
+      "type": "video_url",
+      "id": "video",
+      "label": "Background Video:",
+      "accept": [
+        "vimeo"
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Background Music"
+    },
+    {
+      "type": "video_url",
+      "id": "music",
+      "label": "For music:",
+      "accept": [
+        "vimeo"
+      ]
+    }
+  ]
+}
+{% endschema %}

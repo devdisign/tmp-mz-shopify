@@ -1,0 +1,9 @@
+<script src="{{ 'Cart.js' | asset_url }}" defer></script>
+
+<script type="module" defer>
+  const root = document.createElement("x-root");
+
+  {% render 'template_props_render' %}
+
+  root.render();
+</script>

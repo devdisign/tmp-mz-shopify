@@ -1,0 +1,284 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "GIIG",
+    "theme_version": "1.0.0",
+    "theme_author": "DevDisign",
+    "theme_documentation_url": "https:\/\/giig-artwear.myshopify.com\/admin",
+    "theme_support_email": "femi@devdisign.com"
+  },
+  {
+    "name": "Store Customisations",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "Logo displayed in the top left."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon Image",
+        "info": "Will be scaled down to 32 x 32px"
+      } 
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social Accounts"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add up to four social icons to display in the bottom right, please ensure you select the correct icon in addition to adding the link."
+      },
+      {
+        "type": "header",
+        "content": "First"
+      },
+      {
+        "type": "select",
+        "id": "socials_one_name",
+        "label": "Social Icon",
+        "options": [
+          {
+            "value": "",
+            "label": "<none>"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          },
+          {
+            "value": "twitter",
+            "label": "Twitter"
+          },
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "snapchat",
+            "label": "Snapchat"
+          },
+          {
+            "value": "tiktok",
+            "label": "TikTok"
+          },
+          {
+            "value": "youtube",
+            "label": "YouTube"
+          },
+          {
+            "value": "pinterest",
+            "label": "Pinterest"
+          },
+          {
+            "value": "tumblr",
+            "label": "Tumblr"
+          },
+          {
+            "value": "vimeo",
+            "label": "Vimeo"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "socials_one_url",
+        "label": "Link",
+        "info": "e.g. https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "header",
+        "content": "Second"
+      },
+      {
+        "type": "select",
+        "id": "socials_two_name",
+        "label": "Social Icon",
+        "options": [
+          {
+            "value": "",
+            "label": "<none>"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          },
+          {
+            "value": "twitter",
+            "label": "Twitter"
+          },
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "snapchat",
+            "label": "Snapchat"
+          },
+          {
+            "value": "tiktok",
+            "label": "TikTok"
+          },
+          {
+            "value": "youtube",
+            "label": "YouTube"
+          },
+          {
+            "value": "pinterest",
+            "label": "Pinterest"
+          },
+          {
+            "value": "tumblr",
+            "label": "Tumblr"
+          },
+          {
+            "value": "vimeo",
+            "label": "Vimeo"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "socials_two_url",
+        "label": "Link",
+        "info": "e.g. https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "header",
+        "content": "Third"
+      },
+      {
+        "type": "select",
+        "id": "socials_three_name",
+        "label": "Social Icon",
+        "options": [
+          {
+            "value": "",
+            "label": "<none>"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          },
+          {
+            "value": "twitter",
+            "label": "Twitter"
+          },
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "snapchat",
+            "label": "Snapchat"
+          },
+          {
+            "value": "tiktok",
+            "label": "TikTok"
+          },
+          {
+            "value": "youtube",
+            "label": "YouTube"
+          },
+          {
+            "value": "pinterest",
+            "label": "Pinterest"
+          },
+          {
+            "value": "tumblr",
+            "label": "Tumblr"
+          },
+          {
+            "value": "vimeo",
+            "label": "Vimeo"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "socials_three_url",
+        "label": "Link",
+        "info": "e.g. https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "header",
+        "content": "Fourth"
+      },
+      {
+        "type": "select",
+        "id": "socials_four_name",
+        "label": "Social Icon",
+        "options": [
+          {
+            "value": "",
+            "label": "<none>"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          },
+          {
+            "value": "twitter",
+            "label": "Twitter"
+          },
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "snapchat",
+            "label": "Snapchat"
+          },
+          {
+            "value": "tiktok",
+            "label": "TikTok"
+          },
+          {
+            "value": "youtube",
+            "label": "YouTube"
+          },
+          {
+            "value": "pinterest",
+            "label": "Pinterest"
+          },
+          {
+            "value": "tumblr",
+            "label": "Tumblr"
+          },
+          {
+            "value": "vimeo",
+            "label": "Vimeo"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "socials_four_url",
+        "label": "Link",
+        "info": "e.g. https:\/\/facebook.com\/shopify"
+      }
+    ]
+  }
+]

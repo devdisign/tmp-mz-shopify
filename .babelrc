@@ -1,0 +1,25 @@
+{
+  "presets": [
+    // ["@babel/env", { "modules": false }],
+    // ["@babel/env",
+    //   {
+    //     "targets": {
+    //       "esmodules": true
+    //     }
+    //   }
+    // ],
+    "@babel/env",
+    ["@babel/typescript", { "jsxPragma": "h" }],
+    "@linaria"
+  ],
+  "plugins": [
+    [
+      "@babel/transform-react-jsx",
+      { 
+        "runtime": "automatic",
+        "importSource": "preact"
+      }
+    ],
+    ["@babel/plugin-transform-runtime"]
+  ]
+}

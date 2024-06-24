@@ -1,0 +1,21 @@
+<script src="{{ '404.js' | asset_url }}" defer></script>
+
+<script type="module" defer>
+  const root = document.createElement("x-root");
+
+  {% render 'template_props_render' %}
+  
+  root.render();
+</script>
+
+{% schema %}
+{
+  "name": "Main",
+  "settings": [{
+    "type": "image_picker",
+    "id": "center_image",
+    "label": "Center Image",
+    "info": "Animation or image to display in the center of each page (desktop only)."
+  }]
+}
+{% endschema %}

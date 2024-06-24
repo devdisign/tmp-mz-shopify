@@ -1,0 +1,94 @@
+const header = {
+  {% if settings.logo != blank %}
+    logo: "{{ settings.logo | image_url }}",
+  {% endif %}
+  entities: "{{ "entities.svg" | asset_url }}",
+  links: [
+    {% for link in linklists.main-menu.links %}
+      { 
+        title: "{{ link.title }}",
+        url: "{{ link.url }}",
+      },
+    {% endfor %}
+  ],
+};
+
+const footer = {
+  payments: [
+    {% for type in shop.enabled_payment_types %}
+      {
+        title: "{{ type }}",
+        data: `{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}`,
+      },
+    {% endfor %}
+  ],
+  policies: [
+    {% for link in linklists.footer.links %}
+      { 
+        title: "{{ link.title }}",
+        url: "{{ link.url }}",
+      },
+    {% endfor %}
+  ],
+  socials: [
+    {% if settings.socials_one_name != blank and settings.socials_one_url != blank %}
+      { 
+        title: "{{ settings.socials_one_name }}",
+        url: "{{ settings.socials_one_url }}",
+      },
+    {% endif %}
+    {% if settings.socials_two_name != blank and settings.socials_two_url != blank %}
+      { 
+        title: "{{ settings.socials_two_name }}",
+        url: "{{ settings.socials_two_url }}",
+      },
+    {% endif %}
+    {% if settings.socials_three_name != blank and settings.socials_three_url != blank %}
+      { 
+        title: "{{ settings.socials_three_name }}",
+        url: "{{ settings.socials_three_url }}",
+      },
+    {% endif %}
+    {% if settings.socials_four_name != blank and settings.socials_four_url != blank %}
+      { 
+        title: "{{ settings.socials_four_name }}",
+        url: "{{ settings.socials_four_url }}",
+      },
+    {% endif %}
+  ],
+};
+
+root.setProp("template", {
+  header,
+  footer, 
+  cartData: JSON.parse(`{
+    "items": [
+      {% for line_item in cart.items %}
+        {
+          "final_line_price": "{{ line_item.final_line_price }}",
+          "final_price": "{{ line_item.final_price }}",
+          "id": {{ line_item.id }},
+          "image": "{{ line_item.image | image_url }}",
+          "original_price": {{ line_item.original_price }},
+          "quantity": {{ line_item.quantity }},
+          "title": "{{ line_item.title }}",
+          "url": "{{ line_item.url }}",
+          "variant": {{ line_item.variant | json }}
+        }
+        {% if line_item != cart.items.last %}
+          ,
+        {% endif %}
+      {% endfor %}
+    ],
+    "total_price": {{ cart.total_price }},
+    "original_total_price": {{ cart.original_total_price }},
+    {% comment %} TODO: get currency obj {% endcomment %}
+    "currency": "{{ cart.currency.iso_code }}"
+  }`),
+  {% if section.settings.center_image != blank %}
+    centerImage: "{{ section.settings.center_image | image_url }}",
+  {% endif %}
+  {% if settings.password != blank %}
+    password: "{{ settings.password }}",
+  {% endif %}
+});

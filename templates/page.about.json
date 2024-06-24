@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "About",
+      "settings": {
+        "center_image": "shopify:\/\/shop_images\/dogs.gif"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

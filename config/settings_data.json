@@ -1,0 +1,39 @@
+{
+  "current": {
+    "logo": "shopify:\/\/shop_images\/WEB_GIIG_SS25_WHITE_LOGO.png",
+    "favicon": "shopify:\/\/shop_images\/favicon-32x32_f2c850ab-948e-47db-8bc7-4e8f037d81f3.png",
+    "socials_one_name": "instagram",
+    "socials_one_url": "https:\/\/www.instagram.com\/gloryisingod\/",
+    "socials_two_name": "twitter",
+    "socials_two_url": "https:\/\/twitter.com\/GIIGSTORE",
+    "socials_three_name": "facebook",
+    "socials_three_url": "https:\/\/facebook.com\/officialghetts",
+    "checkout_logo_image": "shopify:\/\/shop_images\/WEB_GIIG_SS25_WHITE_LOGO.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#000000",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_accent_color": "#d5d7d9",
+    "checkout_button_color": "#ffffff",
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "4918592460924562117": {
+        "type": "shopify:\/\/apps\/optimonk-popup-cro-a-b-test\/blocks\/app-embed\/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+  }
+}

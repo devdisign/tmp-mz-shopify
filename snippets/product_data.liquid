@@ -1,0 +1,52 @@
+var product_data_output = { 
+  product: JSON.parse(`{
+  "collections": {{ product_data_input.collections | json }},
+  "description": {{ product_data_input.description | strip_html | split: ' ' | join: ' ' | json }},
+  "id": {{ product_data_input.id }},
+    "images": {{ product_data_input.images | json }},
+    "options":
+    {% if product_data_input.has_only_default_variant %}
+      []
+    {% else %}
+      {{ product_data_input.options | json }}
+    {% endif %},
+    "price": {{ product_data_input.price }},
+    "title": "{{ product_data_input.title }}",
+    "url": "{{ product_data_input.url }}",
+    "variants": [
+      {% for variant in product_data_input.variants %}
+        {
+          "available": {{ variant.available }},
+          "id": {{ variant.id }},
+          "inventory_policy": "{{ variant.inventory_policy }}",
+          "inventory_quantity": {{ variant.inventory_quantity }},
+          "name": "{{ variant.name }}",
+          "options": {{ variant.options | json }},
+          "price": {{ variant.price }},
+          "public_title": "{{ variant.public_title }}",
+          "title": "{{ variant.title }}",
+          "url": "{{ variant.url }}",
+          "my_fields": {
+            "restock_date": "{{ variant.metafields.my_fields.restock.value }}"
+          }
+        }
+        {% if variant != product_data_input.variants.last %}
+          ,
+        {% endif %}
+      {% endfor %}
+    ]
+  }`),
+  optionsWithValues: 
+  {% if product_data_input.has_only_default_variant %}
+    []
+  {% else %}
+    JSON.parse(`{{ product_data_input.options_with_values | json }}`)
+  {% endif %}
+};
+
+var my_fields = {
+  restock: new Date("{{ product_data_input.metafields.my_fields.restock.value }}"),
+  layers: "{{ product_data_input.metafields.my_fields.layera.value }}",
+};
+
+product_data_output.product.my_fields = my_fields;

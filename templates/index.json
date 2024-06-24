@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "Home",
+      "settings": {
+        "center_image": "shopify:\/\/shop_images\/dogs.gif",
+        "video": "https:\/\/vimeo.com\/922965320?share=copy"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

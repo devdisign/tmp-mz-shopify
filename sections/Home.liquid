@@ -1,0 +1,125 @@
+<script src="{{ 'Home.js' | asset_url }}" defer></script>
+
+<script type="module" defer>
+  const root = document.createElement("x-root");
+
+  root.setProp("video", "{{ section.settings.video }}");
+
+  root.setProp("products", JSON.parse(`[
+    {% for link in linklists.collections.links %}
+      {% for product in collections[link.title].products %}
+        {
+          "collections": {{ product.collections | json }},
+          "description": {{ product.description | strip_html | split: ' ' | join: ' ' | json }},
+          "id": {{ product.id }},
+          "images": {{ product.images | json }},
+          "options": {{ product.options | json }},
+          "price": {{ product.price }},
+          "title": "{{ product.title }}",
+          "url": "{{ product.url }}",
+          "variants": [
+            {% for variant in product.variants %}
+              {
+                "available": {{ variant.available }},
+                "id": {{ variant.id }},
+                "inventory_policy": "{{ variant.inventory_policy }}",
+                "inventory_quantity": {{ variant.inventory_quantity }},
+                "name": "{{ variant.name }}",
+                "options": {{ variant.options | json }},
+                "price": {{ variant.price }},
+                "public_title": "{{ variant.public_title }}",
+                "title": "{{ variant.title }}",
+                "url": "{{ variant.url }}"
+              }
+              {% if variant != product.variants.last %}
+                ,
+              {% endif %}
+            {% endfor %}
+          ]
+        }
+        {% if product != collections[link.title].products.last or link != linklists.collections.links.last %}
+          ,
+        {% endif %}
+      {% endfor %}
+    {% endfor %}  
+  ]`));
+
+  {% render 'template_props_render' %}
+
+  root.render();
+</script>
+
+{% schema %}
+{
+  "name": "Main",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Image",
+      "info": "Animation or image to display in the center of each page (desktop only)."
+    },
+    {
+      "type": "video_url",
+      "id": "video",
+      "label": "For background video:",
+      "accept": ["vimeo"]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Enter Screen",
+      "type": "enter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "select",
+          "id": "content",
+          "label": "Enter Content",
+          "options": [
+            {
+              "value": "",
+              "label": "<none>"
+            },
+            {
+              "value": "logo",
+              "label": "Logo"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "enter_image",
+          "label": "For logo:"
+        },
+        {
+          "type": "video_url",
+          "id": "video",
+          "label": "For video:",
+          "accept": ["vimeo"]
+        },
+        {
+          "type": "header",
+          "content": "Background Music"
+        },
+        {
+          "type": "video_url",
+          "id": "music",
+          "label": "For music:",
+          "accept": [
+            "vimeo"
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

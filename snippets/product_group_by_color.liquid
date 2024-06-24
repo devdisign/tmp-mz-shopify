@@ -1,0 +1,34 @@
+{% assign tag_alt = nil %}
+{% for tag in product_group_by_color_input.tags %}
+  {% assign tag_prefix = tag | slice: 0, 5 %}
+  {% if tag_prefix == "_alt_" %}
+    {% assign tag_alt = tag %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+const colors = {};
+
+{% assign alt_products_total = 0 %}
+{% if tag_alt != nil %}
+  {% for collection in product_group_by_color_input.collections %}
+    {% for alt_product in collection.products %}
+      {% if alt_product.tags contains tag_alt %}
+        {% assign alt_products_total = alt_products_total | plus: 1 %}
+        {% for color_option in alt_product.options_by_name["color"].values %}
+
+          {% assign product_data_input = alt_product %}
+          {% include 'product_data' %}
+          colors["{{ color_option }}"] = product_data_output;
+
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% if alt_products_total > 0 %}
+  var product_group_by_color_output = colors;
+{% else %}
+  var product_group_by_color_output = undefined;
+{% endif %}

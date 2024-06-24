@@ -1,0 +1,33 @@
+<script src="{{ 'Policy.js' | asset_url }}" defer></script>
+
+<script type="module" defer>
+  const root = document.createElement("x-root");
+
+  root.setProp('title', `{{ page.title }}`);
+
+  {% if request.path == '/pages/terms' %}
+    root.setProp('content', `{{ shop.terms_of_service.body }}`);
+  {% elsif request.path == '/pages/privacy' %}
+    root.setProp('content', `{{ shop.privacy_policy.body }}`);
+  {% elsif request.path == '/pages/faqs' %}
+    root.setProp('content', `{{ shop.refund_policy.body }}`);
+  {% else %}
+    root.setProp('content', `{{ page.content }}`);
+  {% endif %}
+
+  {% render 'template_props_render' %}
+
+  root.render();
+</script>
+
+{% schema %}
+{
+  "name": "Main",
+  "settings": [{
+    "type": "image_picker",
+    "id": "center_image",
+    "label": "Center Image",
+    "info": "Animation or image to display in the center of each page (desktop only)."
+  }]
+}
+{% endschema %}

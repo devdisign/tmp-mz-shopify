@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "Policy",
+      "settings": {
+        "center_image": "shopify:\/\/shop_images\/dogs.gif"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,12 @@
+# directories
+node_modules/
+src/
+
+# files
+.babelrc
+.eslintrc.yml
+package-lock.json
+package.json
+README.md
+tsconfig.json
+webpack.config.ts
